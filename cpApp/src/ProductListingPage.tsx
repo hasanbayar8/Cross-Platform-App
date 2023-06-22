@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { RouteProp } from '@react-navigation/native';
 
-const ProductListingPage = () => {
+// Define the type for the route parameter
+type ProductListingRouteProp = RouteProp<Record<string, object | undefined>, string>;
+
+type Props = {
+  route: ProductListingRouteProp;
+};
+
+const ProductListingPage: React.FC<Props> = ({ route }) => {
   const [products, setProducts] = useState([
     { id: 1, name: 'Product 1' },
     { id: 2, name: 'Product 2' },
     { id: 3, name: 'Product 3' },
   ]);
 
-  const deleteProduct = (productId) => {
+  const deleteProduct = (productId: number) => {
     const updatedProducts = products.filter((product) => product.id !== productId);
     setProducts(updatedProducts);
   };
