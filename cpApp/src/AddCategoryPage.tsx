@@ -6,10 +6,10 @@ const AddCategoryPage = () => {
   const [categoryDetail, setCategoryDetail] = useState('');
 
   const handleSubmit = () => {
-    // Handle form submission logic, such as sending data to a service
+    
     console.log('Category Name:', categoryName);
     console.log('Category Detail:', categoryDetail);
-    // Reset form fields
+    
     setCategoryName('');
     setCategoryDetail('');
   };

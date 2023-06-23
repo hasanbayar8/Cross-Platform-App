@@ -16,7 +16,6 @@ type RootStackParamList = {
 const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ route }) => {
   const { productId, productName } = route.params;
 
-  // Replace the following data with your actual product data
   const productData = {
     id: productId,
     name: productName,

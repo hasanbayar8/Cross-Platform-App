@@ -1,40 +1,19 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { RouteProp } from '@react-navigation/native';
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-// Define the type for the route parameter
-type ProductListingRouteProp = RouteProp<Record<string, object | undefined>, string>;
-
-type Props = {
-  route: ProductListingRouteProp;
-};
-
-const ProductListingPage: React.FC<Props> = ({ route }) => {
-  const [products, setProducts] = useState([
-    { id: 1, name: 'Product 1' },
-    { id: 2, name: 'Product 2' },
-    { id: 3, name: 'Product 3' },
-  ]);
-
-  const deleteProduct = (productId: number) => {
-    const updatedProducts = products.filter((product) => product.id !== productId);
-    setProducts(updatedProducts);
-  };
-
+const ProductListingPage = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Product Listing Page</Text>
-      {products.map((product) => (
-        <View key={product.id} style={styles.productItem}>
-          <Text style={styles.productName}>{product.name}</Text>
-          <TouchableOpacity
-            style={styles.deleteButton}
-            onPress={() => deleteProduct(product.id)}
-          >
-            <Text style={styles.deleteButtonText}>Delete</Text>
-          </TouchableOpacity>
-        </View>
-      ))}
+      <View style={styles.productItem}>
+        <Text style={styles.productName}>Product 1</Text>
+      </View>
+      <View style={styles.productItem}>
+        <Text style={styles.productName}>Product 2</Text>
+      </View>
+      <View style={styles.productItem}>
+        <Text style={styles.productName}>Product 3</Text>
+      </View>
     </View>
   );
 };
@@ -52,21 +31,15 @@ const styles = StyleSheet.create({
   },
   productItem: {
     flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10,
+    height: 50,
+    backgroundColor: '#f2f2f2',
   },
   productName: {
-    flex: 1,
     fontSize: 16,
-  },
-  deleteButton: {
-    backgroundColor: 'red',
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    borderRadius: 5,
-  },
-  deleteButtonText: {
-    color: '#fff',
+    color: '#333',
   },
 });
 
