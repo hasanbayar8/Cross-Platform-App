@@ -21,3 +21,5 @@ const App = () => {
 };
 
 export default App;
+
+// I couldn't test the project because I couldn't get build. It was a very busy period and I tried to do my best :) 
